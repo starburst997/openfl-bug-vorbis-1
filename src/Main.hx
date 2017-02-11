@@ -149,7 +149,7 @@ class Main extends Sprite
     trace("Seekable", reader.seekable());
 
     // BUG #1 - FromBytes crashes here!
-    //reader.pcmSeek( Int64.ofInt(44100) ); // Test skipping 1 sec
+    reader.pcmSeek( Int64.ofInt(44100) ); // Test skipping 1 sec
 
     trace("Tell", reader.pcmTell());
 
