@@ -190,12 +190,19 @@ class Main extends Sprite
 
     // Save WAV file for debug
     var fileRef:FileReference = new FileReference();
+    
     fileRef.addEventListener( Event.SELECT, function(e)
     {
       reader.clear();
       handler();
     }, false, 0, true );
 
-    fileRef.save(ByteArrayData.fromBytes(output.getBytes()), name);
+    fileRef.addEventListener( Event.CANCEL, function(e)
+    {
+      reader.clear();
+      handler();
+    }, false, 0, true );
+    
+    fileRef.save(ByteArrayData.fromBytes(output.getBytes()), "test.wav");
   }
 }
